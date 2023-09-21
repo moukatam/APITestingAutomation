@@ -1,36 +1,36 @@
 {
 	"info": {
-		"_postman_id": "ced79cc6-dc34-4425-a7b7-facbbe08e881",
-		"name": "API Testing",
+		"_postman_id": "2c63ca18-973e-4170-b4de-15471bb85b94",
+		"name": "API Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16825267",
-		"_collection_link": "https://interstellar-crater-618961.postman.co/workspace/Deepak~bf826488-9c9f-45b5-b1c9-8f9f987aa2b6/collection/16825267-ced79cc6-dc34-4425-a7b7-facbbe08e881?action=share&creator=16825267&source=collection_link"
+		"_exporter_id": "20826410",
+		"_collection_link": "https://crimson-firefly-21300.postman.co/workspace/API-Testing~46e74032-2de9-44d5-9599-541548dd672c/collection/20826410-2c63ca18-973e-4170-b4de-15471bb85b94?action=share&source=collection_link&creator=20826410"
 	},
 	"item": [
 		{
-			"name": "Get Req",
+			"name": "GET",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							" pm.response.to.have.status(200);\r",
 							"});\r",
 							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"Rachel\");\r",
+							" pm.expect(pm.response.text()).to.include(\"Rachel\");\r",
 							"});\r",
-							"\r",
-							"pm.test(\"Your test name\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.data.id).to.eql(2);\r",
+							"pm.test(\"Check JSON Data\", function () {\r",
+							" var jsonData = pm.response.json();\r",
+							" pm.expect(jsonData.data.id).to.eql(12);\r",
 							"});\r",
-							"\r",
-							"var resp='{\"data\":{\"id\":2,\"email\":\"janet.weaver@reqres.in\",\"first_name\":\"Janet\",\"last_name\":\"Weaver\",\"avatar\":\"https://reqres.in/img/faces/2-image.jpg\"},\"support\":{\"url\":\"https://reqres.in/#support-heading\",\"text\":\"To keep ReqRes free, contributions towards server costs are appreciated!\"}}'\r",
-							" \r",
-							"pm.test(\"Body is correct\", function () {\r",
-							"    pm.response.to.have.body(resp);\r",
+							"pm.test(\"Check last name \", function () {\r",
+							" var jsonData = pm.response.json();\r",
+							" pm.expect(jsonData.data.last_name).to.eql(\"Howell\");\r",
+							"});\r",
+							"pm.test(\"Check url \", function () {\r",
+							" var jsonData = pm.response.json();\r",
+							" pm.expect(jsonData.support.url).contains(\"support-heading\");\r",
 							"});\r",
 							""
 						],
@@ -38,6 +38,9 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
